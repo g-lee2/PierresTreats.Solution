@@ -11,7 +11,6 @@ using System.Security.Claims;
 
 namespace Bakery.Controllers
 {
-  [Authorize]
   public class FlavorsController : Controller
   {
     private readonly BakeryContext _db;
@@ -23,16 +22,12 @@ namespace Bakery.Controllers
       _db = db;
     }
 
-    public async Task<ActionResult> Index()
+    public ActionResult Index()
     {
-      string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
-      List<Flavor> userFlavors = _db.Flavors
-                          .Where(entry => entry.User.Id == currentUser.Id)
-                          .ToList();
-      return View(userFlavors);
+      return View(_db.Flavors.ToList());
     }
 
+    [Authorize]
     public ActionResult Create()
     {
       return View();
@@ -65,6 +60,7 @@ namespace Bakery.Controllers
       return View(thisFlavor);
     }
 
+    [Authorize]
      public ActionResult Edit(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -80,6 +76,7 @@ namespace Bakery.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult Delete(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -95,6 +92,7 @@ namespace Bakery.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult AddTreat(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -116,6 +114,7 @@ namespace Bakery.Controllers
       return RedirectToAction("Details", new { id = flavor.FlavorId});
     }
 
+    [Authorize]
     [HttpPost]
     public ActionResult DeleteJoin(int joinId)
     {
