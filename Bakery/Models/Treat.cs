@@ -1,12 +1,16 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 namespace Bakery.Models 
 {
   public class Treat 
   {
     public int TreatId { get; set; }
+    [Required(ErrorMessage = "The item's description can't be empty!")]
     public string Name { get; set; }
     public string Description { get; set; }
-    public double Price { get; set; }
+    [Range(0, 999.99)]
+    public decimal Price { get; set; }
     public List<FlavorTreat> JoinEntities { get; set; }
     public ApplicationUser User { get; set; }
   }
