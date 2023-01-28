@@ -21,7 +21,7 @@ else
   <ul>
     @foreach(FlavorTreat join in Model.JoinEntities)
     {
-      <li>Flavor: @join.Flavor.Name</li>
+      <li>Flavors: @join.Flavor.Name</li>
       @if (User.Identity.IsAuthenticated)
       {
         @using (Html.BeginForm("DeleteJoin", "Treats"))
@@ -37,15 +37,7 @@ else
 
 @if (User.Identity.IsAuthenticated)
 {
-  <p>@Html.ActionLink("Back to list of treats", "Index")</p>
-  <p>@Html.ActionLink("Edit info", "Edit", new { id = Model.TreatId })</p>
-  <p>@Html.ActionLink("Delete treat", "Delete", new { id = Model.TreatId })</p>
-  <p>@Html.ActionLink("Add a flavor", "AddFlavor", new { id = Model.TreatId })</p>
-  <p>@Html.ActionLink("Home", "Index", "Home")</p>
-}
-else 
-{
-  <p>@Html.ActionLink("Login to manage treats", "Login", "Account")</p>
-  <p>@Html.ActionLink("Create account to manage treats", "Register", "Account")</p>
-  <p>@Html.ActionLink("Home", "Index", "Home")</p>
+  <button>@Html.ActionLink("Edit info", "Edit", new { id = Model.TreatId })</button>
+  <button>@Html.ActionLink("Delete treat", "Delete", new { id = Model.TreatId })</button>
+  <button>@Html.ActionLink("Add a flavor", "AddFlavor", new { id = Model.TreatId })</button>
 }

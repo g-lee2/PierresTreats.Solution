@@ -10,6 +10,27 @@
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
   <body>
+    <div class="navbar">
+      <h1>Pierre's Bakery</h1>
+      @if (User.Identity.IsAuthenticated)
+      {
+        <p>@Html.ActionLink("Home", "Index", "Home")</p>
+        <p>@Html.ActionLink("Treats", "Index", "Treats")</p>
+        <p>@Html.ActionLink("Flavors", "Index", "Flavors")</p>
+        <p>@Html.ActionLink("Account Home", "Index", "Account")</p>
+        @using (Html.BeginForm("LogOff", "Account"))
+        {
+          <input type="submit" value="Log out" />
+        }
+      }
+      else 
+      {
+        <p>@Html.ActionLink("Home", "Index", "Home")</p>
+        <p>@Html.ActionLink("Log In", "Login", "Account")</p>
+        <p>@Html.ActionLink("Sign Up", "Register", "Account")</p> 
+      }
+    </div>
+    <hr />
     @RenderBody()
   </body>
 </html>

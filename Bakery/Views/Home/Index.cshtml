@@ -6,7 +6,7 @@
 
 <h1>Welcome to Pierre's Bakery</h1>
 
-<hr>
+<hr />
 
 <h4>Treats</h4>
 @if (Model["treats"].Length == 0)
@@ -20,7 +20,7 @@
   }
 </ul>
 
-<hr>
+<hr />
 
 <h4>Flavors</h4>
 @if (Model["flavors"].Length == 0)
@@ -34,14 +34,4 @@
   }
 </ul>
 
-<hr>
-
-@if (User.Identity.IsAuthenticated)
-{
-  <p>@Html.ActionLink("Manage your account", "Index", "Account")</p>
-}
-else 
-{
-  <p>@Html.ActionLink("Log into your account", "Login", "Account")</p>
-  <p>@Html.ActionLink("Create an account", "Register", "Account")</p>
-}
+<hr />
