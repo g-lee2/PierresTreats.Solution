@@ -1,7 +1,21 @@
+body {
+  font-family: 'Karla', sans-serif;
+  text-align: center;
+}
+
 button {
   border-radius: 5px;
   background: whitesmoke;
-  height: 45px;
+  height: 40px;
+}
+
+button a {
+  padding: 3px;
+}
+
+.btn {
+  background: whitesmoke;
+  border: 0.3mm solid black;
 }
 
 a:link {
@@ -21,4 +35,28 @@ a:hover {
 a:active {
   text-decoration: none;
   color: black;
+}
+
+.navbar {
+  height: 60px;
+  align-items: center;
+  display: flex;
+  max-width: 100%;    
+  min-width: 1000px;
+}
+
+.navbar p {
+  margin: 0;
+}
+
+.navbar h1 {
+  font-weight: 700;
+}
+
+li {
+  list-style-position: inside;
+}
+
+label {
+  font-size: 30px;
 }

@@ -13,13 +13,17 @@
   @Html.HiddenFor(model => model.TreatId)
 
   @Html.Label("Name")
+  <br />
   @Html.EditorFor(model => model.Name)
-
+  <br />  
   @Html.Label("Description")
-  @Html.EditorFor(model => model.Description)
-
+  <br />
+  @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "description-input col-md-2" } })
+  <br />
   @Html.Label("Price")
+  <br />
   @Html.EditorFor(model => model.Price)
-
+  <br />
+  <br />
   <input type="submit" value="Save" />
 }

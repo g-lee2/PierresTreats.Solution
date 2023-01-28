@@ -2,9 +2,9 @@
   Layout = "_Layout";
 }
 
-<h2>Accounts Page</h2>
+<h1>Accounts Page</h1>
 <hr />
 @if (User.Identity.IsAuthenticated)
 {
-  <p>Hello @User.Identity.Name!</p>
+  <p>Hello, @User.Identity.Name!</p>
 }

@@ -4,7 +4,7 @@
 
 @model Bakery.Models.Treat
 
-<h4>Add a new treat</h4>
+<h2>Add a new treat</h2>
 
 <p>@Html.ValidationMessageFor(model => model.Name)</p>
 <p>@Html.ValidationMessageFor(model => model.Price)</p>
@@ -12,11 +12,17 @@
 @using (Html.BeginForm())
 {
   @Html.Label("Name")
+  <br />
   @Html.TextBoxFor(model => model.Name)
+  <br />
   @Html.Label("Description")
+  <br />
   @Html.TextAreaFor(model => model.Description)
+  <br />
   @Html.Label("Price")
+  <br />
   @Html.TextBoxFor(model => model.Price, new { @type = "number", @step = "0.01" })
-
+  <br />
+  <br />
   <input type="submit" value="Add a new treat" class="btn btn-default">
 }

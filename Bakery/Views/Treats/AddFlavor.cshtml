@@ -5,15 +5,17 @@
 @model Bakery.Models.Treat
 
 
-<h4>Add a flavor to this treat: @Html.DisplayFor(model => model.Name)</h4>
+<h2>Add a flavor to this treat: @Html.DisplayFor(model => model.Name)</h2>
 
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.TreatId)
 
     @Html.Label("Select flavor")
+    <br />
     @Html.DropDownList("FlavorId")
-
+    <br />
+    <br />
     <input type="submit" value="Save" />
 }
 
