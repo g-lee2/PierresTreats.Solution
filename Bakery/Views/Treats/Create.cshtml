@@ -14,9 +14,9 @@
   @Html.Label("Name")
   @Html.TextBoxFor(model => model.Name)
   @Html.Label("Description")
-  @Html.TextBoxFor(model => model.Description)
+  @Html.TextAreaFor(model => model.Description)
   @Html.Label("Price")
-  @Html.TextBoxFor(model => model.Price)
+  @Html.TextBoxFor(model => model.Price, new { @type = "number", @step = "0.01" })
 
   <input type="submit" value="Add a new treat" class="btn btn-default">
 }

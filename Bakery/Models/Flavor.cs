@@ -6,7 +6,7 @@ namespace Bakery.Models
   public class Flavor 
   {
     public int FlavorId { get; set; }
-    [Required(ErrorMessage = "The item's description can't be empty!")]
+    [Required(ErrorMessage = "The item can't be empty!")]
     public string Name { get; set; }
     public List<FlavorTreat> JoinEntities { get; set; }
     public ApplicationUser User { get; set; }

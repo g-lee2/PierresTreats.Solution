@@ -59,7 +59,6 @@ namespace Bakery.Controllers
       return View(thisTreat);
     }
 
-    
     public ActionResult Edit(int id)
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
@@ -76,7 +75,6 @@ namespace Bakery.Controllers
       return RedirectToAction("Index");
     }
 
-    
     public ActionResult Delete(int id)
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);

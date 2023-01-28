@@ -6,7 +6,7 @@ namespace Bakery.Models
   public class Treat 
   {
     public int TreatId { get; set; }
-    [Required(ErrorMessage = "The item's description can't be empty!")]
+    [Required(ErrorMessage = "The item can't be empty!")]
     public string Name { get; set; }
     public string Description { get; set; }
     [Range(0, 999.99)]
