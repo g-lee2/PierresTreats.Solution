@@ -8,5 +8,6 @@ namespace Bakery.Models
     public string Description { get; set; }
     public double Price { get; set; }
     public List<FlavorTreat> JoinEntities { get; set; }
+    public ApplicationUser User { get; set; }
   }
 }
