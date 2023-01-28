@@ -1,3 +1,26 @@
 @{
   Layout = "_Layout";
 }
+
+@model Bakery.Models.Treat
+
+<h4>Add a new treat</h4>
+
+<p>@Html.ValidationMessageFor(model => model.Name)</p>
+<p>@Html.ValidationMessageFor(model => model.Description)</p>
+<p>@Html.ValidationMessageFor(model => model.Price)</p>
+
+@using (Html.BeginForm())
+{
+  @Html.Label("Name")
+  @Html.TextBoxFor(model => model.Name)
+  @Html.Label("Description")
+  @Html.TextBoxFor(model => model.Description)
+  @Html.Label("Price")
+  @Html.TextBoxFor(model => model.Price)
+
+  <input type="submit" value="Add a new treat" class="btn btn-default">
+}
+
+<p>@Html.ActionLink("Show list of treats", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
