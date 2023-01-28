@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Bakery.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Bakery
 {
@@ -21,6 +22,9 @@ namespace Bakery
                           )
                         )
                       );
+      builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<BakeryContext>()
+                .AddDefaultTokenProviders();
 
       WebApplication app = builder.Build();
 
@@ -28,6 +32,9 @@ namespace Bakery
       app.UseStaticFiles();
 
       app.UseRouting();
+
+      app.UseAuthentication(); 
+      app.UseAuthorization();
 
       app.MapControllerRoute(
           name: "default",
