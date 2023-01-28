@@ -36,7 +36,12 @@
 
 <hr>
 
-<p>@Html.ActionLink("Manage Treats", "Index", "Treats")</p> 
-<p>@Html.ActionLink("Manage Flavors", "Index", "Flavors")</p>
-<p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
-
+@if (User.Identity.IsAuthenticated)
+{
+  <p>@Html.ActionLink("Manage your account", "Index", "Account")</p>
+}
+else 
+{
+  <p>@Html.ActionLink("Log into your account", "Login", "Account")</p>
+  <p>@Html.ActionLink("Create an account", "Register", "Account")</p>
+}
